@@ -59,12 +59,17 @@ main{
     justify-content: center;
     flex-direction: column;
     height: 70vh;
+    gap:20px;
 }
 
 main > h2{
     width: 400px;
     text-align: justify;
     padding: 20px;
+    background:#252525 ;
+    color: var(--branco);
+    border-radius: 40px;
+
 }
 .botao{
     padding: 20px;

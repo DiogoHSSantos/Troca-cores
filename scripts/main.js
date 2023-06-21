@@ -1,39 +1,31 @@
-const main = document.querySelector('main');
-const header = document.querySelector('header');
-const footer = document.querySelector('footer');
+const main = document.querySelector('#main');
+const botaoTema = document.querySelector('.tema');
 
-header.innerHTML = `
-        <h1>Troca cores 1.0</h1>
-        <ul>
-            <a href="#">
-                <li><span class="material-symbols-outlined">bolt</span>troca cores</li>
-            </a>
-            <a href="temas.html">
-                <li><span class="material-symbols-outlined">brightness_medium</span>tema escuro e claro</li>
-            </a>
-        </ul>
-`;
-main.innerHTML = `
-        <h2>clique no botão abaixo para mudar a cor da página</h2>
-        <button class="botao" onclick="mudarDeCor()">Mudar!</button>
-`;
+let iconTema = document.querySelector('.bx');
 
 
-footer.innerHTML = `
-        <p>criado por Diogo Henrique.</p>
-`;
+botaoTema.addEventListener('click', () => {
+    iconTema.classList.toggle('bxs-moon');
+
+    iconTema.classList.toggle('bxs-sun');
+    
+    temaClaroeEcuro()
+     
+
+});
+
+
+const areaResultado = document.querySelector('.areaResultado');
+const botaoMudaCor = document.querySelector('.botaoTrocaCor');
+
+botaoMudaCor.addEventListener('click', ()=>{
+    let color = generateColor();
+
+    areaResultado.style.background = color;
+    areaResultado.textContent = color;
+
+})
 
 
 
-let cores = ['var(--corClara)' , 'var(--corSecundaria)' , 'var(--branco)' , '#B836D9' , '#DAA069', '#DBD217' , '#A0E1C1' , '#4F9DA9']
-
-function mudarDeCor() {
-    const randomNumber =getRandomNumber();
-
-    main.style.background = cores[randomNumber];
-};
-
-function getRandomNumber() {
-    return Math.floor(Math.random() * cores.length)
-}
 
